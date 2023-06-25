@@ -15,7 +15,7 @@ An example local [k3s](https://github.com/rancher/k3s) development environment u
 ## Features
 - Bootstraps k3s cluster in Docker using k3d
 - Skaffold loads docker images directly into the k3s cluster
-- Skaffold uses kustomize for building and deploying k8s manifests using [local-dev](#kustomize-directory-structure-based-layout) overlay. (Note: kustomize for prod and staging)
+- Skaffold uses kustomize for building and deploying k8s manifests using [local-dev](#kustomize-directory-structure-based-layout) overlay. (Note: kustomize for prod and staging, need changes of skaffold.yaml file -> kubeContext & (OPTIONAL) portForward: resourceName: if using kustomize EXAMPLE 2)
 - An example `node.js` app will be bootstrapped with [File sync](https://skaffold.dev/docs/pipeline-stages/filesync/) and [Port forward](https://skaffold.dev/docs/pipeline-stages/port-forwarding/) enabled
 
 <!-- PREREQUISITES -->
