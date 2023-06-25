@@ -1,4 +1,4 @@
-# k3d-skaffold-kustomize-demo 
+# DEMO: Local development with k3d, skaffold, kustomize 
 
 An example local [k3s](https://github.com/rancher/k3s) development environment using [kustomize](https://github.com/kubernetes-sigs/kustomize), [skaffold](https://github.com/GoogleContainerTools/skaffold) and [k3d](https://github.com/rancher/k3d). 
 
