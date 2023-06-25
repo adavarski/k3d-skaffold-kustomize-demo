@@ -82,7 +82,7 @@ task docker:rmi
 
 <!-- KUSTOMIZE CONFIGURATION -->
 ## Kustomize configuration
-Kustomize configuration is based on [Directory Structure Based Layout]) in order to use multiple environments with different configuration. In order to use different clusters remember to specify the corresponding context before applying changes using Skaffold.
+Kustomize configuration is based on `Directory Structure Based Layout` in order to use multiple environments with different configuration. In order to use different clusters remember to specify the corresponding context before applying changes using Skaffold.
 ```sh
 ├── base
 │   ├── deployment.yaml
