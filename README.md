@@ -105,4 +105,4 @@ Kustomize configuration is based on `Directory Structure Based Layout` in order 
 
         
 ```
-Note: kustomize for prod and staging, need changes of skaffold.yaml file -> kubeContext & (OPTIONAL) portForward: resourceName: if using kustomize EXAMPLE 2
+Note: kustomize for prod and staging, need changes of skaffold.yaml file -> kubeContext & (OPTIONAL) portForward: resourceName: if using kustomize EXAMPLE 2 , kustomization files, ETC.
