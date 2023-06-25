@@ -15,7 +15,7 @@ An example local [k3s](https://github.com/rancher/k3s) development environment u
 ## Features
 - Bootstraps k3s cluster in Docker using k3d
 - Skaffold loads docker images directly into the k3s cluster
-- Skaffold uses kustomize for building and deploying k8s manifests using [local-dev](#kustomize-directory-structure-based-layout) overlay. (Note: kustomize for prod and staging, need changes of skaffold.yaml file -> kubeContext & (OPTIONAL) portForward: resourceName: if using kustomize EXAMPLE 2)
+- Skaffold uses kustomize for building and deploying k8s manifests using [local-dev](#kustomize-directory-structure-based-layout) overlay. 
 - An example `node.js` app will be bootstrapped with [File sync](https://skaffold.dev/docs/filesync/) and [Port forward](https://skaffold.dev/docs/pipeline-stages/port-forwarding/) enabled
 
 <!-- PREREQUISITES -->
@@ -82,7 +82,7 @@ task docker:rmi
 
 <!-- KUSTOMIZE CONFIGURATION -->
 ## Kustomize configuration
-Kustomize configuration is based on [Directory Structure Based Layout](https://kubectl.docs.kubernetes.io/pages/app_composition_and_deployment/structure_directories.html) in order to use multiple environments with different configuration. In order to use different clusters remember to specify the corresponding context before applying changes using Skaffold.
+Kustomize configuration is based on [Directory Structure Based Layout]) in order to use multiple environments with different configuration. In order to use different clusters remember to specify the corresponding context before applying changes using Skaffold.
 ```sh
 ├── base
 │   ├── deployment.yaml
@@ -94,8 +94,15 @@ Kustomize configuration is based on [Directory Structure Based Layout](https://k
     │   ├── deployment-patch.yaml
     │   ├── hpa-patch.yaml
     │   ├── kustomization.yaml
-    └── prod
+    ├── prod
+    │   ├── deployment-patch.yaml
+    │   ├── hpa-patch.yaml
+    │   └── kustomization.yaml
+    └── staging
         ├── deployment-patch.yaml
         ├── hpa-patch.yaml
-        └── kustomization.yaml
+        └── kustomization.yaml        
+
+        
 ```
+Note: kustomize for prod and staging, need changes of skaffold.yaml file -> kubeContext & (OPTIONAL) portForward: resourceName: if using kustomize EXAMPLE 2
