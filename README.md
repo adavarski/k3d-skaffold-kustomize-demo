@@ -36,7 +36,7 @@ The following prerequisites are used in order to create and manage the local K3s
 
 - [Docker](https://docs.docker.com/engine/install/ubuntu/) or [Docker Desktop](https://docs.docker.com/get-docker/)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- [Kustomize](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/INSTALL.md)
+- [Kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize/)
 - [Skaffold](https://skaffold.dev/docs/getting-started/#installing-skaffold)
 - [K3d](https://github.com/rancher/k3d)
 - [Go Task](https://taskfile.dev/installation) (Note: Go Task as a more modern iteration of the Makefile utility)
