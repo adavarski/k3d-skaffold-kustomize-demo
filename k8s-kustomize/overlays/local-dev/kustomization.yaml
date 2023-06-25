@@ -1,0 +1,26 @@
+#### EXAMLE 1
+#apiVersion: kustomize.config.k8s.io/v1beta1
+#kind: Kustomization
+
+## namespace: dev
+#nameSuffix: -dev
+
+#patchesStrategicMerge:
+#- deployment.yaml
+
+#resources:
+#- ../../base
+
+##### EXAMLE 2(use patch):
+resources:
+  - ../../base
+
+patchesJson6902:
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: example-app
+  path: deployment-patch.yaml
+
+  

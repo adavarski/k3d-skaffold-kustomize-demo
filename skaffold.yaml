@@ -1,0 +1,42 @@
+apiVersion:  skaffold/v2beta29
+kind: Config
+metadata:
+  name: example-app
+build:
+  artifacts:
+    - image: example-app
+      sync:
+        manual:
+        - src: 'src/**/*.js'
+          dest: .
+
+profiles:
+  - name: local-dev
+    deploy:
+      kustomize:
+        paths: 
+          - k8s-kustomize/overlays/local-dev
+      kubeContext: k3d-k3s-local
+
+  - name: prod
+    deploy:
+      kustomize:
+        paths: 
+          - k8s-kustomize/overlays/prod
+      kubeContext: k3d-k3s-local
+
+  - name: staging
+    deploy:
+      kustomize:
+        paths:
+          - k8s-kustomize/overlays/staging
+      kubeContext: k3d-k3s-local
+
+
+
+portForward:
+  - resourceType: service
+    resourceName: example-app
+    namespace: default
+    port: 3000
+    localPort: 3000

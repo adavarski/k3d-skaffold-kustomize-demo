@@ -1,0 +1,31 @@
+- op: add
+  path: /spec/minReplicas
+  value: 2
+
+- op: add
+  path: /spec/maxReplicas
+  value: 5davar@devops:~/k3d-BEST-REPOS-FOR-TESTING-various-k8s-features/k3s-kustomize-skaffold-k3d-example/k8s-kustomize/overlays/local-dev$ cat deployment-patch.yaml 
+- op: add
+  path: /spec/template/spec/containers/0/resources/limits/cpu
+  value: 100m
+
+- op: add
+  path: /spec/template/spec/containers/0/resources/limits/memory
+  value: 256Mi
+
+- op: add
+  path: /spec/template/spec/containers/0/resources/requests/cpu
+  value: 50m
+
+- op: add
+  path: /spec/template/spec/containers/0/resources/requests/memory
+  value: 128Mi
+
+- op: add
+  path: /spec/template/spec/containers/0/securityContext/readOnlyRootFilesystem
+  value: false
+
+- op: add
+  path: /spec/template/spec/containers/0/args
+  value: ["/home/node/.npm-global/bin/nodemon/bin/nodemon.js", "src/index.js"]
+

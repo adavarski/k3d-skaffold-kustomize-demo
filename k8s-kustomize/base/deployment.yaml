@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-app
+  labels:
+    app: example-app
+    tier: backend
+spec:
+  selector:
+    matchLabels:
+      app: example-app
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: example-app
+        tier: backend
+    spec:
+      containers:
+        - name: example-app
+          image: example-app:latest
+          imagePullPolicy: IfNotPresent
+          args: ["node", "src/index.js"]
+          securityContext:
+            runAsUser: 1000 # node
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+          ports:
+            - name: http-port
+              containerPort: 3000
+          resources:
+            limits:
+              cpu: 50m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 64Mi
+          
